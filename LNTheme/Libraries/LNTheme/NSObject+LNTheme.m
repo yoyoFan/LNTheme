@@ -116,7 +116,7 @@ static NSHashTable *themeHashTable;
 @end
 
 @implementation UIColor (LNTheme)
-+ (UIColor *)colorWithHexString:(NSString *) hexString {
++ (UIColor *)colorWithHexString:(NSString *)hexString {
     NSString *colorString = [[hexString stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
     CGFloat alpha, red, blue, green;
     switch ([colorString length]) {
@@ -151,7 +151,7 @@ static NSHashTable *themeHashTable;
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
 }
 
-+ (CGFloat)colorComponentFrom:(NSString *) string start: (NSUInteger) start length: (NSUInteger) length {
++ (CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger)length {
     NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
     unsigned hexComponent;
@@ -293,4 +293,56 @@ static NSHashTable *themeHashTable;
 }
 
 @end
+
+@implementation UITextField (LNTheme)
+- (void)ln_textColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setTextColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+@end
+
+@implementation UITextView (LNTheme)
+- (void)ln_textColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setTextColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+@end
+
+@implementation UISlider (LNTheme)
+- (void)ln_thumbTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setThumbTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+- (void)ln_minimumTrackTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setMinimumTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+- (void)ln_maximumTrackTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setMaximumTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+@end
+
+@implementation UISwitch (LNTheme)
+- (void)ln_onTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setOnTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+- (void)ln_thumbTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setThumbTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+@end
+
+@implementation UIProgressView (LNTheme)
+- (void)ln_trackTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+- (void)ln_progressTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setProgressTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+
+@end
+
 

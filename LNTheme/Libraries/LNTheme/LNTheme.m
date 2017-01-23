@@ -50,12 +50,17 @@
     //设置颜色值
     NSString *filePath = [NSString stringWithFormat:@"%@/Info.json",self.currentThemePath];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    if (fileData) {
-        NSError *error = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
-        self.currentThemeDic = json;
-        self.currentColorDic = [json valueForKey:@"colors"];
+    if (!fileData) {
+        //默认颜色数值
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"defaultTheme" ofType:@"json"];
+        fileData = [NSData dataWithContentsOfFile:filePath];
+    } else {
     }
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
+    self.currentThemeDic = json;
+    self.currentColorDic = [json valueForKey:@"colors"];
+    NSLog(@"%@",self.currentThemePath);
 }
 
 #pragma mark - 方法

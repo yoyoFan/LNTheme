@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF3040C61E359D8800F3641E /* defaultTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = AF3040C51E359D8800F3641E /* defaultTheme.json */; };
+		AF3040C91E35A2A300F3641E /* MyMusicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3040C81E35A2A300F3641E /* MyMusicVC.m */; };
 		AFB4724C1E309897000FFF9F /* LNThemePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB4724B1E309897000FFF9F /* LNThemePicker.m */; };
 		AFB6AA6D1E2C97CD009377AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB6AA6C1E2C97CD009377AC /* main.m */; };
 		AFB6AA701E2C97CD009377AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB6AA6F1E2C97CD009377AC /* AppDelegate.m */; };
@@ -79,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF3040C51E359D8800F3641E /* defaultTheme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultTheme.json; sourceTree = "<group>"; };
+		AF3040C71E35A2A300F3641E /* MyMusicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMusicVC.h; sourceTree = "<group>"; };
+		AF3040C81E35A2A300F3641E /* MyMusicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMusicVC.m; sourceTree = "<group>"; };
 		AFB4724A1E309897000FFF9F /* LNThemePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNThemePicker.h; sourceTree = "<group>"; };
 		AFB4724B1E309897000FFF9F /* LNThemePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNThemePicker.m; sourceTree = "<group>"; };
 		AFB6AA681E2C97CD009377AC /* LNTheme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNTheme.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +241,8 @@
 			children = (
 				AFB6AB331E2C98D2009377AC /* Libraries */,
 				AFB6AA9F1E2C981B009377AC /* skineTheme.json */,
+				AF3040C71E35A2A300F3641E /* MyMusicVC.h */,
+				AF3040C81E35A2A300F3641E /* MyMusicVC.m */,
 				AFB6ABAD1E2C994F009377AC /* NavController.h */,
 				AFB6ABAE1E2C994F009377AC /* NavController.m */,
 				AFB6AAA01E2C981B009377AC /* ThemeModel.h */,
@@ -435,6 +442,7 @@
 				AFB4724B1E309897000FFF9F /* LNThemePicker.m */,
 				AFB6ABA51E2C9942009377AC /* NSObject+LNTheme.h */,
 				AFB6ABA61E2C9942009377AC /* NSObject+LNTheme.m */,
+				AF3040C51E359D8800F3641E /* defaultTheme.json */,
 			);
 			path = LNTheme;
 			sourceTree = "<group>";
@@ -558,6 +566,7 @@
 				AFB6AAB91E2C9838009377AC /* Main.storyboard in Resources */,
 				AFB6AA781E2C97CD009377AC /* Assets.xcassets in Resources */,
 				AFB6AAB71E2C981B009377AC /* ThemeDetailVC.xib in Resources */,
+				AF3040C61E359D8800F3641E /* defaultTheme.json in Resources */,
 				AFB6AAB51E2C981B009377AC /* ThemeSettingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +618,7 @@
 				AFB6AB831E2C991F009377AC /* ioapi.c in Sources */,
 				AFB6AAB41E2C981B009377AC /* ThemeSettingCell.m in Sources */,
 				AFB6AB851E2C991F009377AC /* unzip.c in Sources */,
+				AF3040C91E35A2A300F3641E /* MyMusicVC.m in Sources */,
 				AFB6AB931E2C991F009377AC /* SDWebImageDownloaderOperation.m in Sources */,
 				AFB6AB9D1E2C991F009377AC /* UIView+WebCacheOperation.m in Sources */,
 				AFB6AB8A1E2C991F009377AC /* FLAnimatedImageView+WebCache.m in Sources */,

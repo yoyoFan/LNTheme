@@ -345,4 +345,21 @@ static NSHashTable *themeHashTable;
 
 @end
 
+@implementation UIPageControl (LNTheme)
+- (void)ln_pageIndicatorTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setPageIndicatorTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+    
+- (void)ln_currentPageIndicatorTintColor:(LNThemeColorType)type {
+   [self setThemePicker:self selector:@"setCurrentPageIndicatorTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+    
+@end
+
+@implementation UISearchBar (LNTheme)
+- (void)ln_barTintColor:(LNThemeColorType)type {
+    [self setThemePicker:self selector:@"setBarTintColor:" picker:[LNThemePicker initWithColorType:type]];
+}
+    
+@end
 

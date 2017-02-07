@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    // 设置主题颜色
+    //设置主题颜色
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
     [navBar ln_backgroundImageNamed:@"cm2_topbar_bg" forBarMetrics:UIBarMetricsDefault];
     [navBar ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:Ctabh font:F14]];

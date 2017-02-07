@@ -61,6 +61,7 @@
 		AFB6ABAB1E2C9942009377AC /* NSObject+LNTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB6ABA61E2C9942009377AC /* NSObject+LNTheme.m */; };
 		AFB6ABAF1E2C994F009377AC /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB6ABAE1E2C994F009377AC /* NavController.m */; };
 		AFB6ABB21E2C9AA6009377AC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB6ABB11E2C9AA6009377AC /* libz.tbd */; };
+		AFF9A35F1E496AF20043BA77 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF9A35E1E496AF20043BA77 /* UIImage+Tint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,8 @@
 		AFB6ABAD1E2C994F009377AC /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavController.h; sourceTree = "<group>"; };
 		AFB6ABAE1E2C994F009377AC /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavController.m; sourceTree = "<group>"; };
 		AFB6ABB11E2C9AA6009377AC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AFF9A35D1E496AF20043BA77 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		AFF9A35E1E496AF20043BA77 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,11 +441,13 @@
 			children = (
 				AFB6ABA31E2C9942009377AC /* LNTheme.h */,
 				AFB6ABA41E2C9942009377AC /* LNTheme.m */,
+				AFF9A35D1E496AF20043BA77 /* UIImage+Tint.h */,
+				AFF9A35E1E496AF20043BA77 /* UIImage+Tint.m */,
 				AFB4724A1E309897000FFF9F /* LNThemePicker.h */,
 				AFB4724B1E309897000FFF9F /* LNThemePicker.m */,
+				AF3040C51E359D8800F3641E /* defaultTheme.json */,
 				AFB6ABA51E2C9942009377AC /* NSObject+LNTheme.h */,
 				AFB6ABA61E2C9942009377AC /* NSObject+LNTheme.m */,
-				AF3040C51E359D8800F3641E /* defaultTheme.json */,
 			);
 			path = LNTheme;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				TargetAttributes = {
 					AFB6AA671E2C97CD009377AC = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FDV8Q23A7X;
 						ProvisioningStyle = Automatic;
 					};
 					AFB6AA801E2C97CD009377AC = {
@@ -619,6 +625,7 @@
 				AFB6AAB41E2C981B009377AC /* ThemeSettingCell.m in Sources */,
 				AFB6AB851E2C991F009377AC /* unzip.c in Sources */,
 				AF3040C91E35A2A300F3641E /* MyMusicVC.m in Sources */,
+				AFF9A35F1E496AF20043BA77 /* UIImage+Tint.m in Sources */,
 				AFB6AB931E2C991F009377AC /* SDWebImageDownloaderOperation.m in Sources */,
 				AFB6AB9D1E2C991F009377AC /* UIView+WebCacheOperation.m in Sources */,
 				AFB6AB8A1E2C991F009377AC /* FLAnimatedImageView+WebCache.m in Sources */,
@@ -774,6 +781,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDV8Q23A7X;
 				INFOPLIST_FILE = LNTheme/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -789,6 +797,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FDV8Q23A7X;
 				INFOPLIST_FILE = LNTheme/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

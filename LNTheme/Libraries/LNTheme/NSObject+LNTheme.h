@@ -96,3 +96,14 @@
 - (void)ln_trackTintColor:(LNThemeColorType)type;
 - (void)ln_progressTintColor:(LNThemeColorType)type;
 @end
+
+@interface UIPageControl (LNTheme)
+- (void)ln_pageIndicatorTintColor:(LNThemeColorType)type;
+- (void)ln_currentPageIndicatorTintColor:(LNThemeColorType)type;
+@end
+
+@interface UISearchBar (LNTheme)
+- (void)ln_barTintColor:(LNThemeColorType)type;
+@end
+
+

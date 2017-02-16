@@ -11,6 +11,7 @@
 @interface LNTheme()
 @property (nonatomic, strong, readwrite) NSString *currentTheme;
 @property (nonatomic, strong, readwrite) NSString *currentThemePath;
+@property (nonatomic, strong, readwrite) NSDictionary *currentFontDic;
 @property (nonatomic, strong, readwrite) NSDictionary *currentThemeDic;
 @property (nonatomic, strong, readwrite) NSDictionary *currentColorDic;
 @end
@@ -69,11 +70,9 @@
     [[LNTheme instance] updateTheme];
 }
 
-+ (UIColor *)colorForType:(LNThemeColorType)type {
-    NSArray *colorKeys = @[@"c1",@"c2",@"c3",@"c4",@"c5",@"c6",@"c7",@"c8",@"c9",@"c1",@"cmsgl",@"cmsgr",@"ctabn",@"ctabh"];
-    NSInteger num = type;
-    if (num < colorKeys.count) {
-        NSString *hexString = [LNTheme instance].currentColorDic[colorKeys[num]];
++ (UIColor *)colorForType:(NSString *)type {
+    if (type) {
+        NSString *hexString = [LNTheme instance].currentColorDic[type];
         if (hexString.length < 6) {
             return [UIColor whiteColor];
         } else {
@@ -93,18 +92,20 @@
     return image;
 }
 
-+ (UIFont *)fontForType:(LNThemeFontType)type {
-    //后台控制font类型 和 大小 自行定义
-    return [UIFont systemFontOfSize:(CGFloat)type];
++ (UIFont *)fontForType:(NSString *)type {
+    if (type) {
+        //后台控制font类型 和 大小 自行定义
+        NSString *font = [LNTheme instance].currentFontDic[@"fonts"][type];
+        NSLog(@"%@ 请设置字体",font);
+        return [UIFont systemFontOfSize:10];
+    } else {
+        return [UIFont systemFontOfSize:6];
+    }
 }
 
 
-+ (NSValue *)imageInsetsForType:(LNThemeImageInsetsType)type {
-    NSArray *coordinatorKeys = @[@"NMTabBarBadgePointViewHighlightOriginOffset",
-                                 @"NMTabBarBadgePointViewOriginOffset",
-                                 @"NMTabBarBadgeTextViewHighlightOriginOffset",
-                                 @"NMTabBarBadgeTextViewOriginOffset"];
-    NSString *coordinator = [LNTheme instance].currentThemeDic[@"coordinators"][coordinatorKeys[type]];
++ (NSValue *)imageInsetsForType:(NSString *)type {
+    NSString *coordinator = [LNTheme instance].currentThemeDic[@"coordinators"][type];
     //为了demo 写死，后续要根据接口实际返回格式做调整
     coordinator = [coordinator stringByReplacingOccurrencesOfString:@"{"withString:@""];
     coordinator = [coordinator stringByReplacingOccurrencesOfString:@"}"withString:@""];

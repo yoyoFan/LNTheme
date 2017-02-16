@@ -172,18 +172,18 @@ static NSHashTable *themeHashTable;
 @end
 
 @implementation UIView (LNTheme)
-- (void)ln_tinyColor:(LNThemeColorType)type {
+- (void)ln_tinyColor:(NSString *)type {
     [self setThemePicker:self selector:@"setTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_backgroundColor:(LNThemeColorType)type {
+- (void)ln_backgroundColor:(NSString *)type {
     [self setThemePicker:self selector:@"setBackgroundColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UITabBar (LNTheme)
-- (void)ln_barTinyColor:(LNThemeColorType)type {
+- (void)ln_barTinyColor:(NSString *)type {
     [self setThemePicker:self selector:@"setBarTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
@@ -205,7 +205,7 @@ static NSHashTable *themeHashTable;
                   picker:[LNThemePicker initWithImageName:name renderingMode:mode]];
 }
 
-- (void)ln_imageInsets:(LNThemeImageInsetsType)type {
+- (void)ln_imageInsets:(NSString *)type {
     [self setThemePicker:self selector:@"setImageInsets:"
                   picker:[LNThemePicker initWithImageInsets:type]];
 }
@@ -217,7 +217,7 @@ static NSHashTable *themeHashTable;
 @end
 
 @implementation UINavigationBar (LNTheme)
-- (void)ln_barTinyColor:(LNThemeColorType)type {
+- (void)ln_barTinyColor:(NSString *)type {
     [self setThemePicker:self selector:@"setBarTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
@@ -233,22 +233,22 @@ static NSHashTable *themeHashTable;
 @end
 
 @implementation UIBarButtonItem (LNTheme)
-- (void)ln_tinyColor:(LNThemeColorType)type {
+- (void)ln_tinyColor:(NSString *)type {
     [self setThemePicker:self selector:@"setTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UILabel (LNTheme)
-- (void)ln_textColor:(LNThemeColorType)type {
+- (void)ln_textColor:(NSString *)type {
     [self setThemePicker:self selector:@"setTextColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_shadowColor:(LNThemeColorType)type {
+- (void)ln_shadowColor:(NSString *)type {
     [self setThemePicker:self selector:@"setShadowColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_highlightedTextColor:(LNThemeColorType)type {
+- (void)ln_highlightedTextColor:(NSString *)type {
     [self setThemePicker:self selector:@"setHighlightedTextColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
@@ -265,7 +265,7 @@ static NSHashTable *themeHashTable;
                   picker:[LNThemePicker initWithImageName:name forState:(UIControlState)state]];
 }
 
-- (void)theme_titleColor:(LNThemeColorType)type forState:(UIControlState)state {
+- (void)theme_titleColor:(NSString *)type forState:(UIControlState)state {
     [self setThemePicker:self selector:@"setTitleColor:forState:"
                   picker:[LNThemePicker initWithColorType:type forState:state]];
 }
@@ -280,84 +280,84 @@ static NSHashTable *themeHashTable;
 @end
 
 @implementation CALayer (LNTheme)
-- (void)ln_borderColor:(LNThemeColorType)type {
+- (void)ln_borderColor:(NSString *)type {
   [self setThemePicker:self selector:@"setBorderColor:" picker:[LNThemePicker initWithCGColor:type]];
 }
 
-- (void)ln_shadowColor:(LNThemeColorType)type {
+- (void)ln_shadowColor:(NSString *)type {
   [self setThemePicker:self selector:@"setShadowColor:" picker:[LNThemePicker initWithCGColor:type]];
 }
 
-- (void)ln_backgroundColor:(LNThemeColorType)type {
+- (void)ln_backgroundColor:(NSString *)type {
   [self setThemePicker:self selector:@"setBackgroundColor:" picker:[LNThemePicker initWithCGColor:type]];
 }
 
 @end
 
 @implementation UITextField (LNTheme)
-- (void)ln_textColor:(LNThemeColorType)type {
+- (void)ln_textColor:(NSString *)type {
    [self setThemePicker:self selector:@"setTextColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UITextView (LNTheme)
-- (void)ln_textColor:(LNThemeColorType)type {
+- (void)ln_textColor:(NSString *)type {
    [self setThemePicker:self selector:@"setTextColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UISlider (LNTheme)
-- (void)ln_thumbTintColor:(LNThemeColorType)type {
+- (void)ln_thumbTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setThumbTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_minimumTrackTintColor:(LNThemeColorType)type {
+- (void)ln_minimumTrackTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setMinimumTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_maximumTrackTintColor:(LNThemeColorType)type {
+- (void)ln_maximumTrackTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setMaximumTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UISwitch (LNTheme)
-- (void)ln_onTintColor:(LNThemeColorType)type {
+- (void)ln_onTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setOnTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_thumbTintColor:(LNThemeColorType)type {
+- (void)ln_thumbTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setThumbTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UIProgressView (LNTheme)
-- (void)ln_trackTintColor:(LNThemeColorType)type {
+- (void)ln_trackTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setTrackTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_progressTintColor:(LNThemeColorType)type {
+- (void)ln_progressTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setProgressTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
 @end
 
 @implementation UIPageControl (LNTheme)
-- (void)ln_pageIndicatorTintColor:(LNThemeColorType)type {
+- (void)ln_pageIndicatorTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setPageIndicatorTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
     
-- (void)ln_currentPageIndicatorTintColor:(LNThemeColorType)type {
+- (void)ln_currentPageIndicatorTintColor:(NSString *)type {
    [self setThemePicker:self selector:@"setCurrentPageIndicatorTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
     
 @end
 
 @implementation UISearchBar (LNTheme)
-- (void)ln_barTintColor:(LNThemeColorType)type {
+- (void)ln_barTintColor:(NSString *)type {
     [self setThemePicker:self selector:@"setBarTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
     

@@ -21,7 +21,7 @@
     //设置主题颜色
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
     [navBar ln_backgroundImageNamed:@"cm2_topbar_bg" forBarMetrics:UIBarMetricsDefault];
-    [navBar ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:Ctabh font:F14]];
+    [navBar ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:@"ctabh" font:@"F14"]];
     [self setValue:navBar forKey:@"navigationBar"];
     
     //自定义返回按钮

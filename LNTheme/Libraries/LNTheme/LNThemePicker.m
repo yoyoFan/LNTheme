@@ -11,7 +11,7 @@
 
 @implementation LNThemePicker
 
-+ (instancetype)initWithColorType:(LNThemeColorType)type {
++ (instancetype)initWithColorType:(NSString *)type {
     LNThemePicker *picker = [[LNThemePicker alloc]init];
     picker.block = ^() {
        return [LNTheme colorForType:type];
@@ -35,7 +35,7 @@
     return picker;
 }
 
-+ (instancetype)initTextAttributesColorType:(LNThemeColorType)color font:(LNThemeFontType)font {
++ (instancetype)initTextAttributesColorType:(NSString *)color font:(NSString *)font {
     LNThemePicker *picker = [[LNThemePicker alloc]init];
     picker.block = ^() {
         NSDictionary *textAttributes = @{NSFontAttributeName:[LNTheme fontForType:font],
@@ -47,7 +47,7 @@
 
 #pragma mark - UIControlState
 
-+ (instancetype)initWithColorType:(LNThemeColorType)type forState:(UIControlState)state {
++ (instancetype)initWithColorType:(NSString *)type forState:(UIControlState)state {
     LNThemePicker *picker = [self initWithColorType:type];
     picker.valueState = state;
     picker.type = ThemeStatePicker;
@@ -68,7 +68,7 @@
     return picker;
 }
 
-+ (instancetype)initTextAttributesColorType:(LNThemeColorType)color font:(LNThemeFontType)font forState:(UIControlState)state {
++ (instancetype)initTextAttributesColorType:(NSString *)color font:(NSString *)font forState:(UIControlState)state {
     LNThemePicker *picker = [self initTextAttributesColorType:color font:font];
     picker.valueState = state;
     picker.type = ThemeStatePicker;
@@ -76,7 +76,7 @@
 }
 
 #pragma mark - ThemeCGColorPicker
-+ (instancetype)initWithCGColor:(LNThemeColorType)type {
++ (instancetype)initWithCGColor:(NSString *)type {
     LNThemePicker *picker = [[LNThemePicker alloc]init];
     picker.type = ThemeCGColorPicker;
     picker.block = ^() {
@@ -97,7 +97,7 @@
 }
 
 #pragma mark - ThemeEdgeInsetPicker
-+ (instancetype)initWithImageInsets:(LNThemeImageInsetsType)type {
++ (instancetype)initWithImageInsets:(NSString *)type {
     LNThemePicker *picker = [[LNThemePicker alloc]init];
     picker.type = ThemeEdgeInsetPicker;
     picker.block = ^() {

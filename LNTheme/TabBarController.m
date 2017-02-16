@@ -25,11 +25,11 @@
     NSArray *prsImages = @[@"cm2_btm_icn_discovery_prs",@"cm2_btm_icn_music_prs",@"cm2_btm_icn_friend_prs",@"cm2_btm_icn_account_prs"];
     for (NSInteger i = 0; i < self.lnTabBar.items.count; i++) {
         UITabBarItem *item = self.lnTabBar.items[i];
-        [item ln_imageInsets:TabBarItemTextViewN];
+        [item ln_imageInsets:@"NMTabBarBadgeTextViewOriginOffset"];
         [item ln_imageNamed:normalImages[i] renderingMode:UIImageRenderingModeAlwaysOriginal];
         [item ln_selectedImageNamed:prsImages[i] renderingMode:UIImageRenderingModeAlwaysOriginal];
-        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:Ctabn font:F5 forState:UIControlStateNormal]];
-        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:Ctabh font:F5 forState:UIControlStateSelected]];
+        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:@"ctabn" font:@"F5" forState:UIControlStateNormal]];
+        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:@"ctabn" font:@"F5" forState:UIControlStateSelected]];
     }
 }
 

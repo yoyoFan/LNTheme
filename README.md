@@ -16,33 +16,33 @@
 + (instancetype)instance;
 + (void)changeTheme:(NSString *)themeName;
 + (UIImage *)imageNamed:(NSString *)name;
-+ (UIFont *)fontForType:(LNThemeFontType)type;
-+ (UIColor *)colorForType:(LNThemeColorType)type;
-+ (NSValue *)imageInsetsForType:(LNThemeImageInsetsType)type;
++ (UIFont *)fontForType:(NSString *)type;
++ (UIColor *)colorForType:(NSString *)type;
++ (NSValue *)imageInsetsForType:(NSString *)type;
 ```
 `LNThemePicker.h` 主题选择类 (具体修改什么属性)
 
 ```
 #pragma mark - ThemePicker
-+ (instancetype)initWithColorType:(LNThemeColorType)type;
++ (instancetype)initWithColorType:(NSString *)type;
 + (instancetype)initWithImageName:(NSString *)name;
 + (instancetype)initWithImageName:(NSString *)name renderingMode:(UIImageRenderingMode)mode;
-+ (instancetype)initTextAttributesColorType:(LNThemeColorType)color font:(LNThemeFontType)font;
++ (instancetype)initTextAttributesColorType:(NSString *)color font:(NSString *)font;
 
 #pragma mark - ThemeStatePicker
 + (instancetype)initWithImageName:(NSString *)name forState:(UIControlState)state;
 + (instancetype)initWithImageName:(NSString *)name forBarMetrics:(UIBarMetrics)state;
-+ (instancetype)initWithColorType:(LNThemeColorType)type forState:(UIControlState)state;
-+ (instancetype)initTextAttributesColorType:(LNThemeColorType)color font:(LNThemeFontType)font forState:(UIControlState)state;
++ (instancetype)initWithColorType:(NSString *)type forState:(UIControlState)state;
++ (instancetype)initTextAttributesColorType:(NSString *)color font:(NSString *)font forState:(UIControlState)state;
 
 #pragma mark - ThemeCGColorPicker
-+ (instancetype)initWithCGColor:(LNThemeColorType)type;
++ (instancetype)initWithCGColor:(NSString *)type;
 
 #pragma mark - ThemeCGFloatPicker
 + (instancetype)initWithCGFloat:(CGFloat)num;
 
 #pragma mark - ThemeEdgeInsetPicker
-+ (instancetype)initWithImageInsets:(LNThemeImageInsetsType)type;
++ (instancetype)initWithImageInsets:(NSString *)type;
 
 #pragma mark - ThemeStatusBarPicker
 + (instancetype)initWithStatusBarAnimated:(BOOL)animated;

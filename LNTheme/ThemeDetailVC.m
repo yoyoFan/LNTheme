@@ -31,8 +31,8 @@
     self.nameLabel.text = self.model.name;
     self.titleLabel.text = self.model.descriptionField;
     [self.musicBg sd_setImageWithURL:[NSURL URLWithString:self.model.thumbnail]];
-    [self.nameLabel ln_textColor:C8];
-    [self.confirmBtn ln_backgroundColor:C8];
+    [self.nameLabel ln_textColor:@"c8"];
+    [self.confirmBtn ln_backgroundColor:@"c8"];
     // Do any additional setup after loading the view from its nib.
 }
 

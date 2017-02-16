@@ -16,7 +16,7 @@
 + (instancetype)instance;
 + (void)changeTheme:(NSString *)themeName;
 + (UIImage *)imageNamed:(NSString *)name;
-+ (UIFont *)fontForType:(LNThemeFontType)type;
-+ (UIColor *)colorForType:(LNThemeColorType)type;
-+ (NSValue *)imageInsetsForType:(LNThemeImageInsetsType)type;
++ (UIFont *)fontForType:(NSString *)type;
++ (UIColor *)colorForType:(NSString *)type;
++ (NSValue *)imageInsetsForType:(NSString *)type;
 @end

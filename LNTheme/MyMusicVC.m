@@ -27,20 +27,20 @@
     [self.button ln_backgroundImageNamed:@"cm2_btm_bg" forState:UIControlStateNormal];
     [self.button ln_backgroundImageNamed:@"cm2_edit_cmt_bg" forState:UIControlStateHighlighted];
     
-    [self.textField ln_textColor:C8];
+    [self.textField ln_textColor:@"c8"];
     
-    [self.textView ln_textColor:C8];
+    [self.textView ln_textColor:@"c8"];
     
     [self.imageview ln_imageNamed:@"cm2_chat_bg"];
     
-    [self.testSwitch ln_onTintColor:C8];
-    [self.testSwitch ln_thumbTintColor:C3];
+    [self.testSwitch ln_onTintColor:@"c8"];
+    [self.testSwitch ln_thumbTintColor:@"c3"];
     
-    [self.progressView ln_trackTintColor:C3];
-    [self.progressView ln_progressTintColor:C8];
+    [self.progressView ln_trackTintColor:@"c3"];
+    [self.progressView ln_progressTintColor:@"c8"];
     
-    [self.sliderView ln_minimumTrackTintColor:C8];
-    [self.sliderView ln_maximumTrackTintColor:C3];
+    [self.sliderView ln_minimumTrackTintColor:@"c8"];
+    [self.sliderView ln_maximumTrackTintColor:@"c3"];
     // Do any additional setup after loading the view.
 }
 

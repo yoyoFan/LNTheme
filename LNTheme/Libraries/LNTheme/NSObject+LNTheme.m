@@ -56,9 +56,7 @@ static NSHashTable *themeHashTable;
         [objetc.themePickers enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop) {
             NSMutableArray *arry = object;
             [arry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [UIView animateWithDuration:0.3 animations:^{
-                    [objetc performThemePicker:key picker:obj];
-                }];
+                [objetc performThemePicker:key picker:obj];
             }];
         }];
     }
@@ -210,8 +208,9 @@ static NSHashTable *themeHashTable;
                   picker:[LNThemePicker initWithImageInsets:type]];
 }
 
-- (void)ln_titleTextAttributes:(LNThemePicker *)picker {
-    [self setThemePicker:self selector:@"setTitleTextAttributes:forState:" picker:picker];
+- (void)ln_titleTextAttributesColorType:(NSString *)colorType font:(NSString *)fontType forState:(UIControlState)state {
+    [self setThemePicker:self selector:@"setTitleTextAttributes:forState:"
+                  picker:[LNThemePicker initTextAttributesColorType:colorType font:fontType forState:state]];
 }
 
 @end
@@ -221,8 +220,10 @@ static NSHashTable *themeHashTable;
     [self setThemePicker:self selector:@"setBarTintColor:" picker:[LNThemePicker initWithColorType:type]];
 }
 
-- (void)ln_titleTextAttributes:(LNThemePicker *)picker {
-    [self setThemePicker:self selector:@"setTitleTextAttributes:" picker:picker];
+
+- (void)ln_titleTextAttributesColorType:(NSString *)colorType font:(NSString *)fontType {
+    [self setThemePicker:self selector:@"setTitleTextAttributes:"
+                  picker:[LNThemePicker initTextAttributesColorType:colorType font:fontType]];
 }
 
 - (void)ln_backgroundImageNamed:(NSString *)name forBarMetrics:(UIBarMetrics)state {

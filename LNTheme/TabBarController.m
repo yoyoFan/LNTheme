@@ -28,8 +28,8 @@
         [item ln_imageInsets:@"NMTabBarBadgeTextViewOriginOffset"];
         [item ln_imageNamed:normalImages[i] renderingMode:UIImageRenderingModeAlwaysOriginal];
         [item ln_selectedImageNamed:prsImages[i] renderingMode:UIImageRenderingModeAlwaysOriginal];
-        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:@"ctabn" font:@"F5" forState:UIControlStateNormal]];
-        [item ln_titleTextAttributes:[LNThemePicker initTextAttributesColorType:@"ctabn" font:@"F5" forState:UIControlStateSelected]];
+        [item ln_titleTextAttributesColorType:@"ctabn" font:@"f2" forState:UIControlStateNormal];
+        [item ln_titleTextAttributesColorType:@"ctabn" font:@"f2" forState:UIControlStateSelected];
     }
 }
 

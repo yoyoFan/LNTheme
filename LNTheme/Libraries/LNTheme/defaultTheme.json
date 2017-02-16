@@ -15,6 +15,13 @@
         "ctabn": "aaaaaa",
         "ctabh": "ffffff"
     },
+    "fonts": {
+        "f1": "8",
+        "f2": "9",
+        "f3": "10",
+        "f4": "14",
+        "f5": "16",
+    },
     "coordinators": {
         "NMTabBarBadgePointViewOriginOffset": "{0,0}",
         "NMTabBarBadgePointViewHighlightOriginOffset": "{0,0}",

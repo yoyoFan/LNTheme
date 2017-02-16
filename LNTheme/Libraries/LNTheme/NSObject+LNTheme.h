@@ -6,9 +6,7 @@
 //  Copyright © 2017 Micker. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "LNThemePicker.h"
 
 @interface NSObject (LNTheme)
 
@@ -36,15 +34,15 @@
 
 @interface UITabBarItem (LNTheme)
 - (void)ln_imageInsets:(NSString *)type;
-- (void)ln_titleTextAttributes:(LNThemePicker *)picker;
 - (void)ln_imageNamed:(NSString *)name renderingMode:(UIImageRenderingMode)mode;
 - (void)ln_selectedImageNamed:(NSString *)name renderingMode:(UIImageRenderingMode)mode;
+- (void)ln_titleTextAttributesColorType:(NSString *)colorType font:(NSString *)fontType forState:(UIControlState)state;
 @end
 
 @interface UINavigationBar (LNTheme)
 - (void)ln_barTinyColor:(NSString *)type;
-- (void)ln_titleTextAttributes:(LNThemePicker *)picker;
 - (void)ln_backgroundImageNamed:(NSString *)name forBarMetrics:(UIBarMetrics)state;
+- (void)ln_titleTextAttributesColorType:(NSString *)colorType font:(NSString *)fontType;
 @end
 
 @interface UIBarButtonItem (LNTheme)
@@ -105,5 +103,3 @@
 @interface UISearchBar (LNTheme)
 - (void)ln_barTintColor:(NSString *)type;
 @end
-
-

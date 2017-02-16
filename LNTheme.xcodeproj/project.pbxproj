@@ -439,13 +439,13 @@
 		AFB6ABA01E2C9942009377AC /* LNTheme */ = {
 			isa = PBXGroup;
 			children = (
+				AF3040C51E359D8800F3641E /* defaultTheme.json */,
 				AFB6ABA31E2C9942009377AC /* LNTheme.h */,
 				AFB6ABA41E2C9942009377AC /* LNTheme.m */,
 				AFF9A35D1E496AF20043BA77 /* UIImage+Tint.h */,
 				AFF9A35E1E496AF20043BA77 /* UIImage+Tint.m */,
 				AFB4724A1E309897000FFF9F /* LNThemePicker.h */,
 				AFB4724B1E309897000FFF9F /* LNThemePicker.m */,
-				AF3040C51E359D8800F3641E /* defaultTheme.json */,
 				AFB6ABA51E2C9942009377AC /* NSObject+LNTheme.h */,
 				AFB6ABA61E2C9942009377AC /* NSObject+LNTheme.m */,
 			);

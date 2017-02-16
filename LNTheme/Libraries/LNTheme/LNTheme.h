@@ -11,7 +11,6 @@
 
 @interface LNTheme : NSObject
 @property (nonatomic, strong, readonly) NSString *currentTheme;
-@property (nonatomic, strong, readonly) NSDictionary *currentThemeDic;
 
 + (instancetype)instance;
 + (void)changeTheme:(NSString *)themeName;

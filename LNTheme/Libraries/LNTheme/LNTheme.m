@@ -11,9 +11,9 @@
 @interface LNTheme()
 @property (nonatomic, strong, readwrite) NSString *currentTheme;
 @property (nonatomic, strong, readwrite) NSString *currentThemePath;
-@property (nonatomic, strong, readwrite) NSDictionary *currentFontDic;
-@property (nonatomic, strong, readwrite) NSDictionary *currentThemeDic;
-@property (nonatomic, strong, readwrite) NSDictionary *currentColorDic;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *currentFontDic;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *currentColorDic;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *currentOffsetDic;
 @end
 @implementation LNTheme
 
@@ -48,26 +48,74 @@
 - (void)changeTheme:(NSString *)themeName {
     self.currentTheme = themeName;
     self.currentThemePath = [NSString stringWithFormat:@"%@/Library/UserData/Skin/CurrentTheme/%@",NSHomeDirectory(),themeName];
-    //设置颜色值
-    NSString *filePath = [NSString stringWithFormat:@"%@/Info.json",self.currentThemePath];
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    if (!fileData) {
+    
+    NSArray *JsonFileArr = [self getFilenamelistOfType:@"json" fromDirPath:self.currentThemePath];
+    NSMutableDictionary *fontDic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *colorDic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *offsetDic = [NSMutableDictionary dictionary];
+    //取出所有值
+    for (NSString *jsonfile in JsonFileArr) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@",self.currentThemePath,jsonfile];
+        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+        if (fileData) {
+            NSError *error = nil;
+            NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
+            [fontDic setValuesForKeysWithDictionary:[jsonDic valueForKey:@"fonts"]];
+            [colorDic setValuesForKeysWithDictionary:[jsonDic valueForKey:@"colors"]];
+            [offsetDic setValuesForKeysWithDictionary:[jsonDic valueForKey:@"coordinators"]];
+        }
+    }
+    
+    if (colorDic.count == 0) {
         //默认颜色数值
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"defaultTheme" ofType:@"json"];
-        fileData = [NSData dataWithContentsOfFile:filePath];
-    } else {
+        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+        NSError *error = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
+        fontDic = [json valueForKey:@"fonts"];
+        colorDic = [json valueForKey:@"colors"];
+        offsetDic = [json valueForKey:@"coordinators"];
     }
-    NSError *error = nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
-    self.currentThemeDic = json;
-    self.currentColorDic = [json valueForKey:@"colors"];
-    NSLog(@"%@",self.currentThemePath);
+    
+    //添加配置
+    self.currentFontDic = fontDic;
+    self.currentColorDic = colorDic;
+    self.currentOffsetDic = offsetDic;
+}
+
+- (NSArray *)getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath {
+    NSMutableArray *filenamelist = [NSMutableArray arrayWithCapacity:10];
+    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
+    for (NSString *filename in tmplist) {
+        NSString *fullpath = [dirPath stringByAppendingPathComponent:filename];
+        if ([self isFileExistAtPath:fullpath]) {
+            if ([[filename pathExtension] isEqualToString:type]) {
+                [filenamelist  addObject:filename];
+            }
+        }
+    }
+    return filenamelist;
+}
+
+- (BOOL)isFileExistAtPath:(NSString*)fileFullPath {
+    BOOL isExist = NO;
+    isExist = [[NSFileManager defaultManager] fileExistsAtPath:fileFullPath];
+    return isExist;
 }
 
 #pragma mark - 方法
 + (void)changeTheme:(NSString *)themeName {
     [[LNTheme instance] changeTheme:themeName];
     [[LNTheme instance] updateTheme];
+}
+
++ (UIImage *)imageNamed:(NSString *)name {
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@",[LNTheme instance].currentThemePath,name];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (!image) {
+        image = [UIImage imageNamed:name];
+    }
+    return image;
 }
 
 + (UIColor *)colorForType:(NSString *)type {
@@ -83,29 +131,18 @@
     }
 }
 
-+ (UIImage *)imageNamed:(NSString *)name {
-    NSString *imagePath = [NSString stringWithFormat:@"%@/%@",[LNTheme instance].currentThemePath,name];
-    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
-    if (!image) {
-        image = [UIImage imageNamed:name];
-    }
-    return image;
-}
-
 + (UIFont *)fontForType:(NSString *)type {
     if (type) {
         //后台控制font类型 和 大小 自行定义
-        NSString *font = [LNTheme instance].currentFontDic[@"fonts"][type];
-        NSLog(@"%@ 请设置字体",font);
-        return [UIFont systemFontOfSize:10];
+        NSString *fontSize = [LNTheme instance].currentFontDic[type];
+        return [UIFont systemFontOfSize:fontSize.floatValue];
     } else {
-        return [UIFont systemFontOfSize:6];
+        return [UIFont systemFontOfSize:10];
     }
 }
 
-
 + (NSValue *)imageInsetsForType:(NSString *)type {
-    NSString *coordinator = [LNTheme instance].currentThemeDic[@"coordinators"][type];
+    NSString *coordinator = [LNTheme instance].currentOffsetDic[type];
     //为了demo 写死，后续要根据接口实际返回格式做调整
     coordinator = [coordinator stringByReplacingOccurrencesOfString:@"{"withString:@""];
     coordinator = [coordinator stringByReplacingOccurrencesOfString:@"}"withString:@""];
